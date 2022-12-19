@@ -8,7 +8,7 @@ class EnqueueCompression
 
     # Create Petition and related Files
 
-    # Create CompressionJob
+    # Create CompressionJob with petition_id
 
     # Return URL to follow for status
 
