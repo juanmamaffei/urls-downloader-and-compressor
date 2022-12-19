@@ -1,0 +1,19 @@
+%h1 Compressor
+
+%h2 Upload a list of URLs to compress sepparated by commas
+
+%form{:action => "/compress", :method => "post"}
+  %textarea{:name => "urls"}
+  %input{:type => "submit", :value => "Compress"}
+
+%h2 Progress
+
+%div#progress
+  Files downloaded: 0/0
+  %br
+  Files compressed: 0/0
+
+%h2 Results
+
+%div#results
+  URL: ...
