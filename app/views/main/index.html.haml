@@ -1,10 +1,16 @@
 %h1 Compressor
 
-%h2 Upload a list of URLs to compress sepparated by commas
+%h2 Upload a list of URLs to compress sepparated by semi-colons
 
-%form{:action => "/compress", :method => "post"}
-  %textarea{:name => "urls"}
-  %input{:type => "submit", :value => "Compress"}
+/ Send the form to files controller and run action with the urls parameter
+
+= form_tag compress_path, :method => :post do
+
+  = text_area_tag :urls, nil, :rows => 10, :cols => 50
+
+  %br
+
+  = submit_tag "Compress"
 
 %h2 Progress
 
