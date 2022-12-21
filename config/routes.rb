@@ -7,4 +7,8 @@ Rails.application.routes.draw do
 
   # Defines the route for the "run" action in the "files" controller
   post "compress", to: "files#run"
+
+  resources :petitions # do
+    # resources :subfiles
+  # end
 end

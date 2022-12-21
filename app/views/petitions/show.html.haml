@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Zip url:
+  = @petition.zip_url
+%p
+  %b Status:
+  = @petition.status
+
+= link_to 'Edit', edit_petition_path(@petition)
+\|
+= link_to 'Back', petitions_path
