@@ -1,0 +1,16 @@
+= form_for @petition do |f|
+  - if @petition.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@petition.errors.count, "error")} prohibited this petition from being saved:"
+      %ul
+        - @petition.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :zip_url
+    = f.text_field :zip_url
+  .field
+    = f.label :status
+    = f.number_field :status
+  .actions
+    = f.submit 'Save'
