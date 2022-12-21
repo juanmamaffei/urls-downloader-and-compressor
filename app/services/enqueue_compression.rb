@@ -12,8 +12,10 @@ class EnqueueCompression
     assign_files(parsed_urls)
 
     # Create CompressionJob with petition_id
+    CompressionJob.perform_later(@petition.id)
 
     # Return URL to follow for status
+    return @petition
 
   end
 
