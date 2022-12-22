@@ -11,8 +11,7 @@ class OrchestrateCompression
     compress_subfiles
     upload_zip_file
     delete_temp_directory
-    update_petition
-    Rails.application.routes.url_helpers.rails_blob_path(@petition.zip_file, only_path: true)
+    @petition.zip_file.url
   end
 
   private
@@ -29,7 +28,7 @@ class OrchestrateCompression
 
   def upload_zip_file
     @petition.zip_file.attach(
-                    io: File.open("tmp/#{@petition.id}"),
+                                  io: File.open("tmp/#{@petition.id}.zip"),
                     filename: @petition.id.to_s,
                     content_type: 'application/zip'
                   )
@@ -37,9 +36,5 @@ class OrchestrateCompression
 
   def delete_temp_directory
     # Delete the temp directory
-  end
-
-  def update_petition
-    # Update the Petition with the zip file location
   end
 end
