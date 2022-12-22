@@ -1,3 +1,4 @@
+require 'zip'
 # Takes all the files in the petition_id folder
 # and compresses them into a zip file.
 # Filename should be petition_id.zip
