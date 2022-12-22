@@ -35,7 +35,7 @@ class EnqueueCompression
     {
       status: @petition.status,
       zip_url: @petition.zip_file.url,
-      petition_url: petition_url(@petition, host: )
+      petition_url: petition_url(@petition, host:)
     }
   end
 

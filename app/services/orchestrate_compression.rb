@@ -29,10 +29,10 @@ class OrchestrateCompression
 
   def upload_zip_file
     @petition.zip_file.attach(
-                                  io: File.open("tmp/#{@petition.id}.zip"),
-                    filename: "#{@petition.id.to_s}.zip",
-                    content_type: 'application/zip'
-                  )
+      io: File.open("tmp/#{@petition.id}.zip"),
+      filename: "#{@petition.id}.zip",
+      content_type: 'application/zip'
+    )
   end
 
   def update_petition_status
@@ -42,7 +42,7 @@ class OrchestrateCompression
   def delete_temp_files
     Dir.delete("tmp/#{@petition.id}") if Dir.exist?("tmp/#{@petition.id}")
     File.delete("tmp/#{@petition.id}.zip") if File.exist?("tmp/#{@petition.id}.zip")
-  rescue
+  rescue StandardError
     true
   end
 end
