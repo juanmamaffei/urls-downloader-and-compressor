@@ -7,20 +7,11 @@ class OrchestrateCompression
   end
 
   def run
-    # Download each file in a temp directory
     download_subfiles
-
-    # Compress the files into a zip file
     compress_subfiles
-
-    # Upload the zip file to S3
     upload_zip_file
-
-    # Delete the temp directory
     delete_temp_directory
-
-    # Update the Petition with the zip file location
-    update_petition
+    @petition.zip_file.url
   end
 
   private
@@ -32,18 +23,18 @@ class OrchestrateCompression
   end
 
   def compress_subfiles
-    FilesCompressor.new(@petition).run
+    Compressor.new(@petition.id).run
   end
 
   def upload_zip_file
-    # Upload the zip file to S3
+    @petition.zip_file.attach(
+                                  io: File.open("tmp/#{@petition.id}.zip"),
+                    filename: @petition.id.to_s,
+                    content_type: 'application/zip'
+                  )
   end
 
   def delete_temp_directory
     # Delete the temp directory
-  end
-
-  def update_petition
-    # Update the Petition with the zip file location
   end
 end
