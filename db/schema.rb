@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_12_22_195813) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -47,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_195813) do
   end
 
   create_table "subfiles", force: :cascade do |t|
-    t.integer "petition_id", null: false
+    t.bigint "petition_id", null: false
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
