@@ -9,7 +9,7 @@ class OrchestrateCompression
   def run
     # Download each file in a temp directory
     download_subfiles
-    
+
     # Compress the files into a zip file
     compress_subfiles
 
@@ -21,7 +21,6 @@ class OrchestrateCompression
 
     # Update the Petition with the zip file location
     update_petition
-
   end
 
   private
