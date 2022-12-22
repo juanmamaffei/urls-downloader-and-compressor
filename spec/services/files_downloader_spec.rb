@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe FilesDownloader do
+describe FilesDownloader, :vcr do
   let!(:petition) { Petition.create }
   let!(:subfile1) { Subfile.create(petition_id: petition.id, url: "https://www.orimi.com/pdf-test.pdf") }
   let!(:subfile2) { Subfile.create(petition_id: petition.id, url: "https://invalid-route.pdf") }
