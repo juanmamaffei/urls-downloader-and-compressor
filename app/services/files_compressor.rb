@@ -1,0 +1,2 @@
+class FilesCompressor
+end
