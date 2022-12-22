@@ -12,7 +12,7 @@ describe Compressor, :vcr do
     end
 
     after do
-      FileUtils.rm_rf(Dir["tmp/*"])
+      FileUtils.rm_rf(Dir['tmp/*'])
     end
 
     it 'creates the correct zip file' do
