@@ -6,8 +6,10 @@ class PetitionsController < ApplicationController
     @petitions = Petition.all
   end
 
-  # GET /petitions/1 or /petitions/1.json
-  def show; end
+  # GET /petitions/1 respond in JSON
+  def show
+    render json: @petition
+  end
 
   # GET /petitions/new
   def new

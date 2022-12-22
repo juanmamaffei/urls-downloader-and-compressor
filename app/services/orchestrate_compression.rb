@@ -10,7 +10,8 @@ class OrchestrateCompression
     download_subfiles
     compress_subfiles
     upload_zip_file
-    delete_temp_directory
+    delete_temp_files
+    update_petition_status
     @petition.zip_file.url
   end
 
@@ -29,12 +30,19 @@ class OrchestrateCompression
   def upload_zip_file
     @petition.zip_file.attach(
                                   io: File.open("tmp/#{@petition.id}.zip"),
-                    filename: @petition.id.to_s,
+                    filename: "#{@petition.id.to_s}.zip",
                     content_type: 'application/zip'
                   )
   end
 
-  def delete_temp_directory
-    # Delete the temp directory
+  def update_petition_status
+    @petition.update(status: 'done')
+  end
+
+  def delete_temp_files
+    Dir.delete("tmp/#{@petition.id}") if Dir.exist?("tmp/#{@petition.id}")
+    File.delete("tmp/#{@petition.id}.zip") if File.exist?("tmp/#{@petition.id}.zip")
+  rescue
+    true
   end
 end
