@@ -28,13 +28,7 @@ class OrchestrateCompression
 
   def download_subfiles
     @subfiles.each do |subfile|
-      begin
-      download = open(subfile.url)
-      IO.copy_stream(download, "tmp/#{@petition.id}/#{download.base_uri.to_s.split('/')[-1]}")
-      rescue Errno::ENOENT => e
-        track_error(subfile)
-        raise StandardError, "Error downloading file: #{subfile.url}"
-      end
+      FilesDownloader.new(subfile, @petition).run
     end
   end
 
@@ -52,10 +46,5 @@ class OrchestrateCompression
 
   def update_petition
     # Update the Petition with the zip file location
-  end
-
-  def track_error(subfile)
-    subfile.update(status: "error")
-    @petition.update(status: "error")
   end
 end
