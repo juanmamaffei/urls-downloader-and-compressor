@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "main#index"
+  root 'main#index'
 
   # Defines the route for the "run" action in the "files" controller
-  post "compress", to: "files#run"
+  post 'compress', to: 'files#run'
 
   resources :petitions # do
-    # resources :subfiles
+  # resources :subfiles
   # end
 end

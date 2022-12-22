@@ -10,22 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_21_215210) do
-  create_table "petitions", force: :cascade do |t|
-    t.string "zip_url"
-    t.integer "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+ActiveRecord::Schema[7.0].define(version: 20_221_221_215_210) do
+  create_table 'petitions', force: :cascade do |t|
+    t.string 'zip_url'
+    t.integer 'status'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "subfiles", force: :cascade do |t|
-    t.integer "petition_id", null: false
-    t.integer "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "url"
-    t.index ["petition_id"], name: "index_subfiles_on_petition_id"
+  create_table 'subfiles', force: :cascade do |t|
+    t.integer 'petition_id', null: false
+    t.integer 'status'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'url'
+    t.index ['petition_id'], name: 'index_subfiles_on_petition_id'
   end
 
-  add_foreign_key "subfiles", "petitions"
+  add_foreign_key 'subfiles', 'petitions'
 end

@@ -1,1 +1,1 @@
-json.partial! "petitions/petition", petition: @petition
+json.partial! 'petitions/petition', petition: @petition

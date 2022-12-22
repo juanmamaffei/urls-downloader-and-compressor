@@ -1,1 +1,1 @@
-json.array! @petitions, partial: "petitions/petition", as: :petition
+json.array! @petitions, partial: 'petitions/petition', as: :petition

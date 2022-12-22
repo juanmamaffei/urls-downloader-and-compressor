@@ -1,4 +1,4 @@
-class EnqueueCompression 
+class EnqueueCompression
   def initialize(files_string)
     @files_string = files_string
   end
@@ -15,8 +15,7 @@ class EnqueueCompression
     CompressionJob.perform_later(@petition.id)
 
     # Return URL to follow for status
-    return @petition
-
+    @petition
   end
 
   private
@@ -27,7 +26,7 @@ class EnqueueCompression
 
   def assign_files(urls)
     urls.each do |url|
-      @petition.subfiles.create(url: url, status: 'pending')
+      @petition.subfiles.create(url:, status: 'pending')
     end
   end
 end

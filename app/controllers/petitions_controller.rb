@@ -1,5 +1,5 @@
 class PetitionsController < ApplicationController
-  before_action :set_petition, only: %i[ show edit update destroy ]
+  before_action :set_petition, only: %i[show edit update destroy]
 
   # GET /petitions or /petitions.json
   def index
@@ -7,8 +7,7 @@ class PetitionsController < ApplicationController
   end
 
   # GET /petitions/1 or /petitions/1.json
-  def show
-  end
+  def show; end
 
   # GET /petitions/new
   def new
@@ -16,8 +15,7 @@ class PetitionsController < ApplicationController
   end
 
   # GET /petitions/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /petitions or /petitions.json
   def create
@@ -25,7 +23,7 @@ class PetitionsController < ApplicationController
 
     respond_to do |format|
       if @petition.save
-        format.html { redirect_to petition_url(@petition), notice: "Petition was successfully created." }
+        format.html { redirect_to petition_url(@petition), notice: 'Petition was successfully created.' }
         format.json { render :show, status: :created, location: @petition }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class PetitionsController < ApplicationController
   def update
     respond_to do |format|
       if @petition.update(petition_params)
-        format.html { redirect_to petition_url(@petition), notice: "Petition was successfully updated." }
+        format.html { redirect_to petition_url(@petition), notice: 'Petition was successfully updated.' }
         format.json { render :show, status: :ok, location: @petition }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class PetitionsController < ApplicationController
     @petition.destroy
 
     respond_to do |format|
-      format.html { redirect_to petitions_url, notice: "Petition was successfully destroyed." }
+      format.html { redirect_to petitions_url, notice: 'Petition was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_petition
-      @petition = Petition.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def petition_params
-      params.require(:petition).permit(:zip_url, :status)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_petition
+    @petition = Petition.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def petition_params
+    params.require(:petition).permit(:zip_url, :status)
+  end
 end
