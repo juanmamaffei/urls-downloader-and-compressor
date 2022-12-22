@@ -12,7 +12,7 @@
   %tbody
     - @petitions.each do |petition|
       %tr
-        %td= petition.zip_url
+        %td= petition.zip_file.url
         %td= petition.status
         %td= link_to 'Show', petition
         %td= link_to 'Edit', edit_petition_path(petition)

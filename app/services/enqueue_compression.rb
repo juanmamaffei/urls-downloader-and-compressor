@@ -1,4 +1,5 @@
 class EnqueueCompression
+  include Rails.application.routes.url_helpers
   def initialize(files_string)
     @files_string = files_string
   end
@@ -15,7 +16,7 @@ class EnqueueCompression
     CompressionJob.perform_later(@petition.id)
 
     # Return URL to follow for status
-    @petition
+    response
   end
 
   private
@@ -28,5 +29,17 @@ class EnqueueCompression
     urls.each do |url|
       @petition.subfiles.create(url:, status: 'pending')
     end
+  end
+
+  def response
+    {
+      status: @petition.status,
+      zip_url: @petition.zip_file.url,
+      petition_url: petition_url(@petition, host: )
+    }
+  end
+
+  def host
+    Rails.env.production? ? ENV['APP_HOST'] : 'localhost:3000'
   end
 end

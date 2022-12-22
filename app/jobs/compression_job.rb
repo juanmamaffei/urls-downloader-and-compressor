@@ -6,7 +6,7 @@ class CompressionJob < ApplicationJob
 
   private
 
-  def petition(_petition_id)
-    Petition.includes(:subfiles).find(petition)
+  def petition(petition_id)
+    Petition.includes(:subfiles).find(petition_id)
   end
 end
