@@ -17,13 +17,13 @@ describe Compressor, :vcr do
 
     it 'creates the correct zip file' do
       described_class.new(petition.id).run
-      zip_file = File.exist?('tmp/1.zip')
+      zip_file = File.exist?("tmp/#{petition.id}.zip")
       expect(zip_file).to be true
     end
 
     it 'creates the correct zip file with the correct content' do
       described_class.new(petition.id).run
-      Zip::File.open('tmp/1.zip') do |zip_file|
+      Zip::File.open("tmp/#{petition.id}.zip") do |zip_file|
         expect(zip_file.entries.map(&:name)).to match_array(['pdf-test.pdf', 'test.pdf'])
       end
     end
