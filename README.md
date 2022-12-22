@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application allows you to take a list of URLs and obtain a URL of a compressed ZIP.
 
-Things you may want to cover:
+## Considerations to deploy
 
-* Ruby version
+- Set the APP_HOST environment variable.
 
-* System dependencies
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/20169653-e2596205-e51d-4dab-9e94-86f0457148e2?action=collection%2Ffork&collection-url=entityId%3D20169653-e2596205-e51d-4dab-9e94-86f0457148e2%26entityType%3Dcollection%26workspaceId%3D77a85c62-a796-4bca-8f75-b6edfdc4d0fb)
