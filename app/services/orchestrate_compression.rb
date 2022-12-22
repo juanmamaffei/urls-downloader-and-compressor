@@ -32,7 +32,7 @@ class OrchestrateCompression
   end
 
   def compress_subfiles
-    # Compress the files into a zip file
+    FilesCompressor.new(@petition).run
   end
 
   def upload_zip_file
