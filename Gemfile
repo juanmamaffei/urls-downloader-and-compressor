@@ -77,4 +77,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'nyan-cat-formatter'
+  gem 'simplecov', require: false
 end
