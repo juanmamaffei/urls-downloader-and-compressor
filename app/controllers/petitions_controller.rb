@@ -8,7 +8,11 @@ class PetitionsController < ApplicationController
 
   # GET /petitions/1 respond in JSON
   def show
-    render json: @petition
+    render json: {
+      id: @petition.id,
+      zip_url: @petition.zip_file.url,
+      status: @petition.status
+    }
   end
 
   # GET /petitions/new
