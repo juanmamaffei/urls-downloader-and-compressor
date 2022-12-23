@@ -1,25 +1,3 @@
 %h1 Compressor
 
-%h2 Upload a list of URLs to compress sepparated by semi-colons
-
-/ Send the form to files controller and run action with the urls parameter
-
-= form_tag compress_path, :method => :post do
-
-  = text_area_tag :urls, nil, :rows => 10, :cols => 50
-
-  %br
-
-  = submit_tag "Compress"
-
-%h2 Progress
-
-%div#progress
-  Files downloaded: 0/0
-  %br
-  Files compressed: 0/0
-
-%h2 Results
-
-%div#results
-  URL: ...
+This service allows you to send a list of URLs of files. These files will be temporarily downloaded, compressed in ZIP format and uploaded to Amazon S3.

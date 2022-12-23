@@ -14,6 +14,8 @@
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'vcr'
+require 'simplecov'
+SimpleCov.start
 
 VCR.configure do |config|
   config.ignore_hosts('test.host')
