@@ -1,2 +1,25 @@
-%h1 Files#run
-%p Find me in app/views/files/run.html.haml
+%h1 Compressor
+
+%h2 Upload a list of URLs to compress sepparated by semi-colons
+
+/ Send the form to files controller and run action with the urls parameter
+
+= form_tag compress_path, :method => :post do
+
+  = text_area_tag :urls, nil, :rows => 10, :cols => 50
+
+  %br
+
+  = submit_tag "Compress"
+
+%h2 Progress
+
+%div#progress
+  Files downloaded: 0/0
+  %br
+  Files compressed: 0/0
+
+%h2 Results
+
+%div#results
+  URL: ...
